@@ -23,12 +23,6 @@
   poll: 0
   register: r_instances
 
-- name: Create server instances
-  os_server_facts:
-    cloud: openstack
-    #server: web*
-- debug:
-    var: openstack_servers
 
 - name: Wait for async OSP instance creation to complete
   async_status: "jid={{ item.ansible_job_id }}"
