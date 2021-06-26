@@ -9,7 +9,7 @@ openstack_servers:
     AnsibleGroup: frontends
     deployment: QA
     #security_group_name: "{{GUID}}-HostSG"
-	  security_group_name: "frontend"
+    security_group_name: "frontend"
     image: "rhel-guest"
     openstack_cloud: "openstack"
     flavor: "m1.medium"
