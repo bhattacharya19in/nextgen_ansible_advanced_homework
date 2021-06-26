@@ -24,7 +24,7 @@ openstack_servers:
     flavor: "m1.medium"
     key_name: "ansible_ssh"
     network: "ext_network"
-  - instance_name: app1
+  - instance_name: app2
     AnsibleGroup: apps
     deployment: QA
     security_group_name: "apps"
