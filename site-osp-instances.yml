@@ -1,8 +1,8 @@
-- hosts: all
+- hosts: localhost
   #hosts: localhost
   connection: local
-  #become: no
-  become: yes
+  become: no
+  #become: yes
   gather_facts: false
   roles:
    - osp-servers
