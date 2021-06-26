@@ -1,44 +1,40 @@
 ---
 # vars file for osp.servers
-openstack_security_groups: []
-openstack_server_state: present
-openstack_cloud: "openstack"
-
-openstack_servers:
-  - instance_name: frontend
-    AnsibleGroup: frontends
-    deployment: QA
-    #security_group_name: "{{GUID}}-HostSG"
-    security_group_name: "frontend"
-    image: "rhel-guest"
-    openstack_cloud: "openstack"
-    flavor: "m1.medium"
-    key_name: "ansible_ssh"
-    network: "ext_network"
-  - instance_name: app1
-    AnsibleGroup: apps
-    deployment: QA
-    security_group_name: "apps"
-    image: "rhel-guest"
-    openstack_cloud: "openstack"
-    flavor: "m1.medium"
-    key_name: "ansible_ssh"
-    network: "ext_network"
-  - instance_name: app2
-    AnsibleGroup: apps
-    deployment: QA
-    security_group_name: "apps"
-    image: "rhel-guest"
-    openstack_cloud: "openstack"
-    flavor: "m1.medium"
-    key_name: "ansible_ssh"
-    network: "ext_network"
-  - instance_name: db
-    AnsibleGroup: db
-    deployment: QA
-    security_group_name: "db"
-    image: "rhel-guest"
-    openstack_cloud: "openstack"
-    flavor: "m1.medium"
-    key_name: "ansible_ssh"
-    network: "ext_network"
+osp_servers:
+  frontend:
+    name: frontend
+    state: present
+    image: rhel-guest
+    key_name: ansible_ssh
+    flavor: m1.medium
+    security_group: frontend
+    meta:
+      - { group: frontends, deployment_name: QA}
+  app1:
+    name: app1
+    state: present
+    image: rhel-guest
+    key_name: ansible_ssh
+    flavor: m1.medium
+    security_group: apps
+    meta:
+      - { group: apps, deployment_name: QA}
+  app2:
+    name: app2
+    state: present
+    image: rhel-guest
+    key_name: ansible_ssh
+    flavor: m1.medium
+    security_group: apps
+    meta:
+      - { group: apps, deployment_name: QA}
+  db:
+    name: db
+    state: present
+    image: rhel-guest
+    key_name: ansible_ssh
+    flavor: m1.medium
+    security_group: db
+    meta:
+      - { group: appdbs, deployment_name: QA}ls
+	  
