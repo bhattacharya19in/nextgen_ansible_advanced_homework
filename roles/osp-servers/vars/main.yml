@@ -2,35 +2,35 @@
 # vars file for osp.servers
 #cloud_name: openstack
 osp_servers:
-  #- name: app1
-    #state: present
-    #group: apps
-    #deployment: QA
-    #security_group_name: apps
-    #key_name: ansible_ssh
-    #int_network: int_network
-    #ext_network: ext_network
-  #- name: app2
-    #state: present
-    #group: apps
-    #deployment: QA
-    #security_group_name: apps
-    #key_name: ansible_ssh
-    #int_network: int_network
-    #ext_network: ext_network
-  - name: db
+  - name: app1
     state: present
-    group: appdbs
+    group: apps
     deployment: QA
-    security_group_name: db
+    security_group_name: apps
     key_name: ansible_ssh
     int_network: int_network
     ext_network: ext_network
-  - name: frontend
+  - name: app2
     state: present
-    group: frontends
+    group: apps
     deployment: QA
-    security_group_name: frontend
+    security_group_name: apps
     key_name: ansible_ssh
     int_network: int_network
     ext_network: ext_network
+  #- name: db
+    #state: present
+    #group: appdbs
+    #deployment: QA
+    #security_group_name: db
+    #key_name: ansible_ssh
+    #int_network: int_network
+    #ext_network: ext_network
+  #- name: frontend
+    #state: present
+    #group: frontends
+    #deployment: QA
+    #security_group_name: frontend
+    #key_name: ansible_ssh
+    #int_network: int_network
+    #ext_network: ext_network
