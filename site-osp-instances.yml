@@ -2,5 +2,5 @@
   connection: local
   become: no
   gather_facts: true
-  roles:
+  include_role:
    - osp-servers
