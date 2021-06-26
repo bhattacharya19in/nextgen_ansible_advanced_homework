@@ -2,7 +2,7 @@
 
 - name: Create a server instance
   os_server:
-    cloud: "{{ cloud_name }}"
+    #cloud: "{{ cloud_name }}"
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     image: rhel-guest
