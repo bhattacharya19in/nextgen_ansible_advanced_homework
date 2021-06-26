@@ -5,7 +5,7 @@
     #cloud: "{{ cloud_name }}"
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-    image: rhel-guest
+    image: 	rhel-8.1
     meta: "group={{ item.group }},deployment_name={{ item.deployment }}"
     flavor: m1.medium
     security_groups: "{{ item.security_group_name }}"
