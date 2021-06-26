@@ -21,7 +21,18 @@
       curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
   with_items: "{{ osp_servers }}" 
-  register: instanceip
+  #register: instanceip
+  async: 900
+  poll: 0
+  register: r_instances
+
+- name: Wait for async OSP instance creation to complete
+  async_status: "jid={{ item.ansible_job_id }}"
+  register: r_wait
+  until: r_wait.finished
+  retries: 900
+  loop: "{{ r_instances.results }}"
+  
 - name: Start instance "{{ instanceip.server.name }}" if it is shutdown
   os_server_action:
     cloud: "{{ cloud_name }}"
