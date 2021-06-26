@@ -20,12 +20,14 @@
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+  with_items: "{{ osp_servers }}" 
   register: instanceip
 - name: Start instance "{{ instanceip.server.name }}" if it is shutdown
   os_server_action:
     cloud: "{{ cloud_name }}"
     action: start
     server: "{{ instanceip.server.name }}"
+  with_items: "{{ osp_servers }}"
   when: instanceip.server is defined and instanceip.server.status == "SHUTOFF"
 
 
