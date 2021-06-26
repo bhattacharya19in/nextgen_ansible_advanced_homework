@@ -3,7 +3,6 @@
   become: no
   gather_facts: true
   tasks:
-  include_role:
     - name: Setup Instances
       include_role:
         name: osp-servers
