@@ -2,5 +2,8 @@
   connection: local
   become: no
   gather_facts: true
+  tasks:
   include_role:
-   - osp-servers
+    - name: Setup Instances
+      include_role:
+        name: osp-servers
