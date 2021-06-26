@@ -1,8 +1,7 @@
 - hosts: localhost
   connection: local
-  become: no
-  gather_facts: true
-  tasks:
-    - name: Setup Instances
-      include_role:
-        name: osp-servers
+  #become: no
+  become: yes
+  gather_facts: false
+  roles:
+   - osp-servers
