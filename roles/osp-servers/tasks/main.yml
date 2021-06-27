@@ -2,14 +2,14 @@
 
 - name: Create a server instance
   os_server: 
-    cloud: "openstack"
+    #cloud: "openstack"
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     image: 	rhel-8.1
     meta: "group={{ item.group }},deployment_name={{ item.deployment }}"
     flavor: m1.medium
     security_groups: "{{ item.security_group_name }}"
-    region_name: "regionOne"
+    #region_name: "regionOne"
     key_name: ansible_ssh
     #delete_fip: true
     wait: yes
