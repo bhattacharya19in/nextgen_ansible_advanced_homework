@@ -3,6 +3,11 @@
 - name: Create a server instance
   os_server: 
     cloud: "openstack"
+    auth:
+         auth_url: http://192.0.2.21:5000
+         username: admin
+         password: r3dh4t1!
+         project_name: admin
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     image: 	rhel-8.1
