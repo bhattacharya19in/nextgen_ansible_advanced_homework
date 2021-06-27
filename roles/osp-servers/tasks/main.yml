@@ -2,7 +2,7 @@
 
 - name: Create a server instance
   os_server: 
-    cloud: openstack
+    cloud: "openstack"
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     image: 	rhel-8.1
