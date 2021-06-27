@@ -26,20 +26,20 @@
   poll: 0
   register: r_instances
 
-- name: Wait for async OSP instance creation to complete
-  async_status: "jid={{ item.ansible_job_id }}"
-  register: r_wait
-  until: r_wait.finished
-  retries: 900
-  loop: "{{ r_instances.results }}"
+#- name: Wait for async OSP instance creation to complete
+  #async_status: "jid={{ item.ansible_job_id }}"
+  #register: r_wait
+  #until: r_wait.finished
+  #retries: 900
+  #loop: "{{ r_instances.results }}"
   
-- name: Start instance "{{ instanceip.server.name }}" if it is shutdown
-  os_server_action:
-    cloud: "{{ cloud_name }}"
-    action: start
-    server: "{{ instanceip.server.name }}"
-  with_items: "{{ osp_servers }}"
-  when: instanceip.server is defined and instanceip.server.status == "SHUTOFF"
+#- name: Start instance "{{ instanceip.server.name }}" if it is shutdown
+  #os_server_action:
+    #cloud: "{{ cloud_name }}"
+    #action: start
+    #server: "{{ instanceip.server.name }}"
+  #with_items: "{{ osp_servers }}"
+  #when: instanceip.server is defined and instanceip.server.status == "SHUTOFF"
 
 
 ...
