@@ -8,8 +8,9 @@
     
   - name: Front end server
     set_fact: 
-      URL: "{{ r_instances.openstack_servers.accessIPv4 }}"
-    when: r_instances.openstack_servers.name == "frontend"
+      URL: "{{ r_instances.openstack_servers[item].accessIPv4 }}"
+    with_items: "{{ r_instances.openstack_servers }}"
+    when: r_instances.openstack_servers[item].name == "frontend"
     
   - debug: var=URL
   
