@@ -6,7 +6,12 @@
       region_name: "{{ openstack_region | default('regionOne') }}"
     register: r_instances
     
-  - debug: var=r_instances
+  - name: Front end server
+    set_fact: 
+      URL: "{{ r_instances.openstack_servers.accessIPv4 }}"
+    when: r_instances.openstack_servers.name == "frontend"
+    
+  - debug: var=URL
   
   - meta: end_play
 
