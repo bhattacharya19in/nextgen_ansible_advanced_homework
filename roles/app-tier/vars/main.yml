@@ -1,2 +1,4 @@
-payload:          tomcat
-tomcat_web_root:  /usr/share/tomcat/webapps/ROOT
+#payload:          tomcat
+#tomcat_web_root:  /usr/share/tomcat/webapps/ROOT
+
+webapps: /usr/share/tomcat/webapps
