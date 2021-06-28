@@ -9,6 +9,9 @@
   - name: Curl website
     uri:
       url: http://192.0.2.165
+    register: _result
+    
+  - debug: var=_result
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
