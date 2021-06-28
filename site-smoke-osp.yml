@@ -8,11 +8,11 @@
 
   - name: Curl website
     uri:
-        url: "http://{{ item }}"
-        return_content: yes
-      register: webpage
-      with_items:
-        - "{{ groups['frontends'] }}"
+      url: "http://{{ item }}"
+      return_content: yes
+    register: webpage
+    with_items:
+      - "{{ groups['frontends'] }}"
     
   
   - name: Fail if 'Ansible has done its job' is not in the page content
