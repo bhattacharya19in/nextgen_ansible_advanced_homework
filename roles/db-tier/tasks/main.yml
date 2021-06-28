@@ -6,7 +6,7 @@
     state: latest
 - name: Check if PostgreSQL database is initialized.
   stat:
-    path: /var/lib/pgsql/data/PG_VERSION
+    path: "{{ pg_data }}"
   register: pgdata_dir_version
 - name: Perform PostgreSQL database initialization if required.
   command: postgresql-setup initdb
