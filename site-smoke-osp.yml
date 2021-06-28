@@ -5,24 +5,14 @@
     os_server_info:
       region_name: "{{ openstack_region | default('regionOne') }}"
     register: r_instances
-    
-  - name: Front end server
-    set_fact: 
-      URL: "{{ r_instances.openstack_servers[item].accessIPv4 }}"
-    with_items: "{{ r_instances.openstack_servers }}"
-    when: r_instances.openstack_servers[item].name == "frontend"
-    
-  - debug: var=URL
   
-  - meta: end_play
-
   - name: Curl website
     uri:
       url: "http://{{ item }}"
       return_content: yes
     register: webpage
     with_items:
-      - "{{ groups['frontends'] }}"
+      - "{{ group['frontends'] }}"
     
   
   - name: Fail if 'Ansible has done its job' is not in the page content
