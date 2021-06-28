@@ -1,5 +1,7 @@
 ---
 
+- debug: var=ansible_facts
+
 - name: Create a server instance
   os_server: 
     #cloud: "openstack"
