@@ -3,6 +3,6 @@
   connection: local
   become: no
   #become: yes
-  gather_facts: false
+  gather_facts: true
   roles:
    - osp-servers
