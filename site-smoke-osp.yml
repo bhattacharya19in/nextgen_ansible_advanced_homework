@@ -8,14 +8,17 @@
 
   - name: Curl website
     uri:
-      url: http://192.0.2.165
-    register: _result
+        url: "http://{{ item }}"
+        return_content: yes
+      register: webpage
+      with_items:
+        - "{{ groups['frontends'] }}"
     
-  - debug: var=_result
-
+  
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
-    #when: "'Ansible has done its job' not in webpage.results[0].content"
-    when: _result.status!=200
+    when: "'Ansible has done its job' not in item.content"
+    #when: webpage.status!=200
+    with_items: "{{ webpage.results }}"
     tags:
       - osp.smoke
