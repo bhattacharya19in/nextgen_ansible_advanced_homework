@@ -6,7 +6,7 @@
       region_name: "{{ openstack_region | default('regionOne') }}"
     register: r_instances
     
-  - debug: r_instances
+  - debug: var=r_instances
   
   - meta: end_play
 
