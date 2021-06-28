@@ -5,6 +5,7 @@
 
 # Setup front-end load balancer tier
 
+- meta: end_play
 
 - name: setup load-balancer tier
   hosts: frontends
