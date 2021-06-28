@@ -7,7 +7,7 @@
     #cloud: "openstack"
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-    image: 	rhel-8.1
+    image: 	rhel-guest
     meta: "group={{ item.group }},deployment_name={{ item.deployment }}"
     flavor: m1.small                                                        // Need to use this flavor due to resource constaint as host (overcloud-novacompute-1.localdomain) is down //
     #flavor: m1.medium
