@@ -9,7 +9,8 @@
     state: "{{ item.state }}"
     image: 	rhel-8.1
     meta: "group={{ item.group }},deployment_name={{ item.deployment }}"
-    flavor: m1.medium
+    flavor: m1.small
+    #flavor: m1.medium
     security_groups: "{{ item.security_group_name }}"
     #region_name: "regionOne"
     key_name: ansible_ssh
