@@ -22,7 +22,7 @@
       #!/bin/bash
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-      curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+      curl -o /tmp/internal.repo http://admin.na.shared.opentlc.com/repos/ocp/3.6/
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
   with_items: "{{ osp_servers }}" 
   #register: instanceip
