@@ -9,7 +9,7 @@
     state: "{{ item.state }}"
     image: 	rhel-guest
     meta: "group={{ item.group }},deployment_name={{ item.deployment }}"
-    flavor: m1.small                                                        // Need to use this flavor due to resource constaint as host (overcloud-novacompute-1.localdomain) is down //
+    flavor: m1.small                                                        
     #flavor: m1.medium
     security_groups: "{{ item.security_group_name }}"
     #region_name: "regionOne"
