@@ -9,8 +9,6 @@
     
   - debug: var=result
   
-  - meta: end_play
-  
   - name: Delete instances
     os_server:
       #cloud: "{{ cloud_name }}"
@@ -23,6 +21,8 @@
       key_name: ansible_ssh
       delete_fip: true
       wait: yes
-      nics:
-        - net-name: "{{ item.int_network }}"
-   
+      #nics:
+        #- net-name: "{{ item.int_network }}"
+      with_items:
+        - "{{ osp_servers }}"
+ 
