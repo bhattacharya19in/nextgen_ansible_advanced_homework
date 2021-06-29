@@ -2,7 +2,7 @@
 - hosts: workstation
   become: true
   become_user: cloud-user
-  become_method: sudo
+  become_method: sudo -i
   gather_facts: false
   tasks:
     - name: create bin directory
