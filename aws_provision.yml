@@ -7,6 +7,12 @@
         #path: /root/bin
         #state: directory
         #force: yes
+    - name: List Files
+      shell: "ls -ltr"
+     
+    - name: Hostname
+      shell: "hostname"
+     
     - name: get script common.sh
       get_url:
         url: "{{ param_repo_base }}/scripts/common.sh"
