@@ -22,6 +22,6 @@
       wait: yes
       #nics:
         #- net-name: "{{ item.int_network }}"
-      with_items:
-        - "{{ osp_servers }}"
+    with_items:
+      - "{{ osp_servers }}"
  
