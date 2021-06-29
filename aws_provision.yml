@@ -1,8 +1,7 @@
 ---
 - hosts: workstation
-  become: true
+  become: false
   gather_facts: false
-  remote_user: cloud-user
   tasks:
     - name: create bin directory
       file:
