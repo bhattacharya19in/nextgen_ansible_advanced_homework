@@ -1,2 +1,35 @@
 ---
 # vars file for roles/osp-instance-delete
+osp_servers:
+  - name: app1
+    state: absent
+    group: apps
+    deployment: QA
+    security_group_name: apps
+    key_name: ansible_ssh
+    int_network: int_network
+    ext_network: ext_network
+  - name: app2
+    state: absent
+    group: apps
+    deployment: QA
+    security_group_name: apps
+    key_name: ansible_ssh
+    int_network: int_network
+    ext_network: ext_network
+  - name: db
+    state: absent
+    group: appdbs
+    deployment: QA
+    security_group_name: db
+    key_name: ansible_ssh
+    int_network: int_network
+    ext_network: ext_network
+  - name: frontend
+    state: absent
+    group: frontends
+    deployment: QA
+    security_group_name: frontend
+    key_name: ansible_ssh
+    int_network: int_network
+    ext_network: ext_network
