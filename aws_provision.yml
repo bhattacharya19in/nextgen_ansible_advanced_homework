@@ -8,12 +8,12 @@
         #state: directory
         #force: yes
     - name: get script common.sh
-      shell: "wget {{ param_repo_base }}/scripts/common.sh"
-      #get_url:
-        #url: "{{ param_repo_base }}/scripts/common.sh"
+      get_url:
+        url: "{{ param_repo_base }}/scripts/common.sh"
+        dest: /tmp/
         #dest: /root/common.sh
-        #mode: 0755
-        #use_proxy: no
+        mode: 0755
+        use_proxy: no
 
     - name: get script jq
       get_url: 
