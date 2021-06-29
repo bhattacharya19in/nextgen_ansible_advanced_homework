@@ -1,6 +1,7 @@
 ---
 - hosts: workstation
   become: true
+  become_method: sudo
   gather_facts: false
   tasks:
     - name: create bin directory
