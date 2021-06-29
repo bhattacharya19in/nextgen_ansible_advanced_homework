@@ -1,6 +1,5 @@
 ---
 - hosts: workstation
-  ansible_user: root
   gather_facts: false
   tasks:
     - name: create bin directory
