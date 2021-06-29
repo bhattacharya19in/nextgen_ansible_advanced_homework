@@ -20,8 +20,6 @@
       key_name: ansible_ssh
       delete_fip: true
       wait: yes
-      #nics:
-        #- net-name: "{{ item.int_network }}"
     with_items:
       - "{{ osp_servers }}"
  
