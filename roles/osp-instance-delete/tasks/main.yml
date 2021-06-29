@@ -1,5 +1,28 @@
 ---
 # tasks file for roles/osp-instance-delete
   - name: Fetch Instance Info
+    os_server_info:
+      #region_name: "{{ openstack_region | default('regionOne') }}"
+    with_items:
+      - "{{ osp_servers }}"
+    register: result
+    
+  - debug: var=result
+  
+  - meta: end_play
+  
   - name: Delete instances
+    os_server:
+      #cloud: "{{ cloud_name }}"
+      name: "{{ item.name }}"
+      state: absent
+      image: rhel-guest
+      meta: "group={{ item.group }},deployment_name={{ item.deployment }}"
+      flavor: m1.small
+      security_groups: "{{ item.security_group_name }}"
+      key_name: ansible_ssh
+      delete_fip: true
+      wait: yes
+      nics:
+        - net-name: "{{ item.int_network }}"
    
