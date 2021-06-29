@@ -2,11 +2,11 @@
 - hosts: workstation
   gather_facts: true
   tasks:
-    #- name: create bin directory
-      #file:
-        #path: /root/bin
-        #state: directory
-        #force: yes
+    - name: create bin directory
+      file:
+        path: /root/bin
+        state: directory
+      
     - name: List Files
       shell: "ls -ltr"
      
