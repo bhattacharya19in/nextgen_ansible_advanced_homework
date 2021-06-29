@@ -1,6 +1,5 @@
 ---
 - hosts: workstation
-  #become: true
   ansible_user: root
   gather_facts: false
   tasks:
