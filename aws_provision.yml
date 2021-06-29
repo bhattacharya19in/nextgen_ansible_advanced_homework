@@ -1,6 +1,6 @@
 ---
 - hosts: workstation
-  become: false
+  become: true
   gather_facts: false
   tasks:
     - name: create bin directory
