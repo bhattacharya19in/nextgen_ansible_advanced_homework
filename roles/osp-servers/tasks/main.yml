@@ -4,7 +4,6 @@
 
 - name: Create a server instance
   os_server: 
-    #cloud: "openstack"
     name: "{{ item.name }}"
     state: "{{ item.state }}"
     image: 	rhel-guest
@@ -12,7 +11,6 @@
     flavor: m1.small                                                        
     #flavor: m1.medium
     security_groups: "{{ item.security_group_name }}"
-    #region_name: "regionOne"
     key_name: ansible_ssh
     #delete_fip: true
     wait: yes
